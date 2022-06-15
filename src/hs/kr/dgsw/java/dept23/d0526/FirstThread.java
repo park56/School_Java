@@ -12,7 +12,7 @@ public class FirstThread extends Thread {	// 상속을 받아야만 쓰레드로써 사용가능
 	}
 	
 	@Override
-	public void run() {				// 쓰레드의 시작포인트 (쓰레드 클래스의 main)
+	public void run() {				// 쓰레드의 시작포인트 (쓰레드 클래스의 Main)
 		
 		for(int i = 0; i< 10; i++) {
 			System.out.printf("%s : %s\n",name,i);
