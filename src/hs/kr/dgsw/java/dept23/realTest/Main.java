@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Main {
 	
 	// 메인 로직
+	// 인코딩 - UTF-8
 	
 	public Scanner scanner;
 	

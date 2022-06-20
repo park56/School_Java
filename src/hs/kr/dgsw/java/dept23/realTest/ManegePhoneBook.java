@@ -9,7 +9,7 @@ public class ManegePhoneBook {
 	
 	private Main main = new Main();
 	private SearchPhoneBook SPB = new SearchPhoneBook();
-	
+
 	private String value;
 	
 	// 입력을 요청받았을 때 핸들러
@@ -44,15 +44,24 @@ public class ManegePhoneBook {
 		main.prepareScanner();
 		Scanner scanner = main.getScanner();
 		
-		System.out.println("삭제할 이름이나 번호를 입력해주세요 : ");
+		ManegePhoneBook MPB= new ManegePhoneBook();
+		
+		
+		System.out.println("삭제할 이름울 정확히 입력해주세요 : ");
 		value = scanner.nextLine();
+		value = value.trim();
+		
+		if (MPB.isNumeric(value)) {
+			System.out.println("이름을 입력해 주세요");
+			return;
+		}
 		
 		int gN = SPB.GetNum(value);
 		
 		if(gN > 1) {
 			SPB.OnlySearch(value);
-			System.out.println("값이 여러개입니다");
-			System.out.println("삭제할 전화번호를 정확히 입력해주세요 : ");
+			System.out.println("이름이 중복됩니다");
+			System.out.println("삭제할 이름의 전화번호를 정확히 입력해주세요 : ");
 			value = scanner.nextLine();
 			
 			if(value.length() != 11) {
@@ -61,7 +70,7 @@ public class ManegePhoneBook {
 			}
 			delNum(value);
 		}else if(gN < 1) {
-			System.out.println("존재하지 않는 번호입니다");
+			System.out.println("존재하지 않는 이름입니다");
 		}else {
 			delNum(value);
 		}
@@ -95,4 +104,15 @@ public class ManegePhoneBook {
 		
 		SPB.writeFile(lastData);
 	}
+	
+	public boolean isNumeric(String input) {    
+		try {        
+			Double.parseDouble(input);        
+			return true;   
+			}    
+		catch (NumberFormatException e) {
+			return false;    
+			}
+		}
+	
 }
