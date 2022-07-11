@@ -5,7 +5,6 @@ import java.io.File;
 public abstract class AbstractCommand {
 
 	protected final File currentDirectory;
-	
 	protected final String commandLine;
 	
 	public AbstractCommand(File currentDirectory, String commandLine) {
@@ -27,6 +26,8 @@ public abstract class AbstractCommand {
 			return new CommandLs(currentDirectory, line);
 		} else if (line.startsWith("quit")) {
 			return new CommandExit(currentDirectory, line);
+		}else if (line.startsWith("rm")) {
+			return new ProcessOfRemove(currentDirectory, line);
 		} else {
 			throw new UnknownCommandException();
 		}

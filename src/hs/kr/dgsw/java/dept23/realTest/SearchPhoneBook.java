@@ -20,7 +20,7 @@ public class SearchPhoneBook {
 	public String[] numData;		// 실질적으로 사용하는 데이터
 	
 	// 검색을 요청받았을 때 핸들러
-	public void SearchNum() throws IOException{
+	public void searchNum() throws IOException{
 		
 		main.prepareScanner();
 		Scanner scanner = main.getScanner();
@@ -28,7 +28,7 @@ public class SearchPhoneBook {
 		System.out.println("이름이나 번호를 입력해주세요 : ");
 		value = scanner.nextLine();
 		
-		if (GetNum(value) < 1){
+		if (getNum(value) < 1){
 			System.out.println("존재하지 않습니다");
 			return;
 		}
@@ -43,7 +43,7 @@ public class SearchPhoneBook {
 	}
 	
 	// 입력을 받지 않고 파일을 검색 할 때
-	public void OnlySearch(String value) throws IOException{
+	public void onlySearch(String value) throws IOException{
 		
 		main.prepareScanner();
 		
@@ -57,7 +57,7 @@ public class SearchPhoneBook {
 	}
 
 	// 파일안에 있는 값을의 총 개수를 반환
-	public int GetNum(String value) throws IOException{
+	public int getNum(String value) throws IOException{
 		
 		getFileData();
 		int j = 0;

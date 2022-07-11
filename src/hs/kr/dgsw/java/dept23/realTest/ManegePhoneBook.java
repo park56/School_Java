@@ -13,7 +13,7 @@ public class ManegePhoneBook {
 	private String value;
 	
 	// 입력을 요청받았을 때 핸들러
-	public void InsertNum() throws IOException{
+	public void insertNum() throws IOException{
 		
 		main.prepareScanner();
 		Scanner scanner = main.getScanner();
@@ -35,11 +35,11 @@ public class ManegePhoneBook {
 		//value = command[0] + "+" + command[1];
 		value = command[0] + " " + command[1];
 		
-		InsertValue(value);
+		insertValue(value);
 	}
 	
 	// 삭제를 요청받았을 때 핸들러
-	public void DeleteNum() throws IOException{
+	public void deleteNum() throws IOException{
 	
 		main.prepareScanner();
 		Scanner scanner = main.getScanner();
@@ -56,10 +56,10 @@ public class ManegePhoneBook {
 			return;
 		}
 		
-		int gN = SPB.GetNum(value);
+		int gN = SPB.getNum(value);
 		
 		if(gN > 1) {
-			SPB.OnlySearch(value);
+			SPB.onlySearch(value);
 			System.out.println("이름이 중복됩니다");
 			System.out.println("삭제할 이름의 전화번호를 정확히 입력해주세요 : ");
 			value = scanner.nextLine();
@@ -91,7 +91,7 @@ public class ManegePhoneBook {
 	}
 		
 	// 데이터를 추가하는 함수
-	public void InsertValue(String value) throws IOException {
+	public void insertValue(String value) throws IOException {
 		
 		SPB.getFileData();
 		String lastData = "";

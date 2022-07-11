@@ -41,11 +41,11 @@ public class Main {
 			commandLine = commandLine.trim();
 			
 			if(commandLine.equals("입력")) {
-				MPB.InsertNum();
+				MPB.insertNum();
 			}else if(commandLine.equals("삭제")) {
-				MPB.DeleteNum();
+				MPB.deleteNum();
 			}else if(commandLine.equals("검색")) {
-				SPB.SearchNum();
+				SPB.searchNum();
 			}else if(commandLine.equals("종료")) {
 				System.out.println("프로그램을 종료합니다");
 				return;
